@@ -1,0 +1,15 @@
+.wrapper{
+
+    background-image: url('testing.jpg');
+    /* width: 500px;     */
+    height: 600px;
+    color:white;
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+}
+
+h1{
+    padding-top:500px;
+    font-size: 60px;
+}
