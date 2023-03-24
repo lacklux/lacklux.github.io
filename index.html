@@ -68,11 +68,39 @@
 			display: inline-block;
 			transition: all 0.3s ease-in-out;
 			margin-top: 30px;
-		}
-		.btn:hover {
-			background-color: #ff69b4;
-			color: #fff;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
 			cursor: pointer;
+		}
+		.btn::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #ff69b4;
+			transform: translateX(-100%);
+			transition: transform 0.3s ease-in-out;
+			z-index: -1;
+		}
+		.btn:hover::before {
+			transform: translateX(0%);
+		}
+		.fade-in {
+			opacity: 0;
+			animation: fadeIn 1s ease-in-out forwards;
+		}
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(-20%);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
 		}
 	</style>
 </head>
@@ -81,10 +109,11 @@
 		<h1>Happy Birthday in Advance</h1>
 	</header>
 	<div class="container">
-		<h2>Dear Oyiza,</h2>
-		<p>We couldn't wait to wish you a happy birthday! Even though it's not quite your special day yet, we wanted you to know how much we appreciate you and how excited we are to celebrate with you soon.</p>
-		<p>We hope this next year brings you happiness, success, and lots of love. You deserve nothing but the best!</p>
-		<a href="#" class="btn">Open Your Gift</a>
+		<h2 class="fade-in">Dear [Name],</h2>
+		<p class="fade-in">We couldn't wait to wish you a happy birthday! Even though it's not quite your special day yet, we wanted you to know how much we appreciate you and how excited we are to celebrate with you soon.</p>
+		<p class="fade-in">We hope this next year brings you happiness, success, and lots of love. You deserve nothing but the best!</p>
+		<a href="#" class="btn fade-in">Open Your Gift</a>
 	</div>
 </body>
 </html>
+
